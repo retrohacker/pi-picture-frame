@@ -1,0 +1,7 @@
+[Unit]
+Description=Download new pictures daily and at boot
+
+[Timer]
+OnCalendar=*-*-* 9:00
+OnBootSec=60
+RandomizedDelaySec=500
