@@ -12,6 +12,12 @@ trap cleanup EXIT
 INDEX="$(mktemp /home/pi/picturesIndex-XXXX)"
 wget --output-document "${INDEX}" --header "Referer: ${DEVICE}.blankenship.io" "${URL}/index.csv"
 
+# Don't do anything if we couldn't get an index from the server
+if [ ! -s "${INDEX}" ]
+then
+  echo "Failed to download index"
+  exit 1
+fi
 
 # Iterate through the index and download each image
 OLDIFS="$IFS"
