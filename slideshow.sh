@@ -5,5 +5,5 @@ LIST=pictures.list
 while true
 do
 	find ./pictures -type f | sort --random-sort > "${LIST}"
-	feh --auto-zoom --borderless --filelist "${LIST}" --fullscreen --image-bg black --slideshow-delay 5
+	feh --auto-zoom --borderless --filelist "${LIST}" --fullscreen --image-bg black --slideshow-delay 6
 done
