@@ -11,9 +11,10 @@
 1. Open `/boot/config.txt` and uncomment `disable_overscan=1`
 1. Run `sudo raspi-config` and enable the splashscreen under "System Options" -> "Splash Screen"
 1. Open `/home/pi/.profile` and update it to run `startx` if `$(tty) == "/dev/tty1"`, it should end up looking something like [./profile](./profile)
-1. Find some way to download your pictures to /home/pi/pictures (I used [./downloadPictures.sh](./downloadPictures.sh) and set it up to run daily using cron)
+1. Find some way to download your pictures to /home/pi/pictures (I used [./downloadPictures.sh](./downloadPictures.sh) and set it up to run daily using systemd timers using these [downloadPictures.service](./downloadPictures.service) and [downloadPictures.timer](./downloadPictures.timer) files)
 1. Setup a script to display your images using feh, I used [./slideshow.sh](./slideshow.sh)
 1. Open up `.xinitrc` and run your script, for example mine is `exec /home/pi/slideshow.sh`
+1. Run `sudo raspi-config` and update your timezone to the state the recipient lives in under "Localization Options" -> "Timezone"
 
 These next steps are optional. I'm giving the picture frames away as a gift to family in another state and I want to be able to fix them over something like teamviewer if something goes wrong.
 1. Run `passwd` to change the password to something more secure (I use [diceware](https://www.rempe.us/diceware/#eff))
