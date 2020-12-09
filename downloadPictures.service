@@ -1,0 +1,10 @@
+[Unit]
+Description=Download pictures for the picture frame
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/pi/downloadPictures.sh
+KillMode=process
+User=pi
+Group=pi
